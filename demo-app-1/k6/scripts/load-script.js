@@ -17,7 +17,7 @@ function randomInt(min, max){
 export default function() {
   if (Math.random() < 0.8) {
     const payload = JSON.stringify({ user_id: randomInt(1,2), amount: Math.random()*100, description: 'k6 load' });
-    const res = http.post('http://localhost:8080/api/orders', payload, { headers: { 'Content-Type': 'application/json' } });
+    const res = http.post('http://localhost:8081/api/orders', payload, { headers: { 'Content-Type': 'application/json' } });
     check(res, { 'created': (r) => r.status === 200 || r.status === 201 });
   } else {
     const res = http.get('http://localhost:8080/api/orders');
@@ -25,3 +25,4 @@ export default function() {
   }
   sleep(0.05);
 }
+
