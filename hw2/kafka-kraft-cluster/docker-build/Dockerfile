@@ -1,4 +1,4 @@
-FROM openjdk:24-jdk-slim-bookworm
+FROM openjdk:26-ea-slim-bookworm
 
 RUN apt-get update && \
     apt-get install -y curl
